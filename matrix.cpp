@@ -73,3 +73,24 @@ double scalarProd(double *input1, double *input2, int len) {	// scalar mul
 	}
 	return result;
 }
+Matrix matrixVectorMul(Matrix input1, Matrix input2, int n, int m, int l) {
+	Matrix temp(n, l);
+	double result = 0.0;
+
+	for(int i=0; i<n; i++) {
+		for(int j=0; j<l; j++) {
+			result = 0.0;
+			for(int k=0; k<m; k++) {
+				result += input1.retValue(i, k) * input2.retValue(k, j);
+			}
+			temp.changeValue(i, j, result);
+		}
+	}
+	return temp;	
+}
+
+/***************************/ 
+/*  to use matrixVectorMul */ 
+/*    create new Matrix    */ 
+/***************************/
+
