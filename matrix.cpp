@@ -12,16 +12,16 @@ public:
 		row = r;
 		int scale;
 		
-		matrix = new double* [col];
+		matrix = new double* [col];  // 2nd array 
 		scale = sizeof(int)*row;
 		
 		for(int i=0; i<col; i++){
-			matrix[i] = new double [row];	
+			matrix[i] = new double [row];
 			memset(matrix[i], 0, scale);
 		}
 		
 	}
-	void initMatrix() {
+	void initMatrix() { // initalize matrix by random value 
 		double rnd;
 		int set;
 		
@@ -35,7 +35,7 @@ public:
 			}
 		}
 	}
-	void show() {
+	void show() { // show matrix
 		for(int i=0; i<col; i++) { 
 			for(int j=0; j<row; j++) {
 				std::cout<<matrix[i][j]<<" ";
@@ -43,7 +43,7 @@ public:
 			std::cout<<std::endl;
 		}
 	}
-	double *selectMatrixRow(int select) {
+	double *selectMatrixRow(int select) { // get row want line
 		double *temp = new double [row];
 		
 		for(int i=0; i<row; i++) {
@@ -51,7 +51,7 @@ public:
 		}
 		return temp;
 	}
-	double *selectMatrixCol(int select) {
+	double *selectMatrixCol(int select) { // get coloumn want line
 		double *temp = new double [col];
 		
 		for(int i=0; i<col; i++) {
@@ -59,12 +59,12 @@ public:
 		}
 		return temp;
 	}
-	void deleteMatrix(){
+	void deleteMatrix(){ // delete matrix
 		delete matrix;
 	}
 };
 
-double scalarProd(double *input1, double *input2, int len) {	
+double scalarProd(double *input1, double *input2, int len) {	// scalar mul 
 	double result = 0.0;
 	
 	for(int i=0;i<len;i++){
