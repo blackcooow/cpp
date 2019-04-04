@@ -43,6 +43,12 @@ public:
 			std::cout<<std::endl;
 		}
 	}
+	void changeValue(int c, int r, int value) {
+		matrix[c][r] = value;		
+	}
+	double getValue(int c, int r) {
+		return matrix[c][r];
+	}
 	double *selectMatrixRow(int select) { // get row want line
 		double *temp = new double [row];
 		
